@@ -7,13 +7,13 @@ import { useNavigation } from '@react-navigation/native';
 const data = [
 	{
 		id: '123',
-		title: 'Get a ride',
+		title: '어디로 떠날까요?',
 		image: 'https://links.papareact.com/3pn',
 		screen: 'MapScreen',
 	},
 	{
 		id: '456',
-		title: 'Order food',
+		title: '주문하시겠어요?',
 		image: 'https://links.papareact.com/28w',
 		screen: 'EatsScreen',
 	},
