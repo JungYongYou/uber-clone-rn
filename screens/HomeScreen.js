@@ -20,7 +20,6 @@ const HomeScreen = () => {
 					placeholder="어디에서 출발할까요?"
 					styles={{ container: { flex: 0 }, textInput: { fontSize: 18 } }}
 					onPress={(data, details = null) => {
-						console.log(details.geometry);
 						dispatch(
 							setOrigin({
 								location: details.geometry.location,
