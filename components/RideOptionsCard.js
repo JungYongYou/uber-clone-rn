@@ -38,10 +38,10 @@ const RideOptionsCard = () => {
 		<SafeAreaView style={tw`bg-white flex-grow`}>
 			<ScrollView>
 				<View>
-					<TouchableOpacity onPress={() => navigation.navigate('NavigateCard')} style={tw`absolute top-3 left-5 p-3 rounded-full`}>
+					<TouchableOpacity onPress={() => navigation.navigate('NavigateCard')} style={tw`z-50 absolute top-3 left-5 p-3 rounded-full`}>
 						<Icon name="chevron-left" type="fontawesome" />
 					</TouchableOpacity>
-					<Text style={tw`text-center py-5 text-xl`}>차량을 선택하세요 - {travelTimeInformation?.distance.text}</Text>
+					<Text style={tw`text-center py-5 text-xl`}>차량을 선택하세요 - {travelTimeInformation?.distance?.text}</Text>
 				</View>
 
 				<FlatList
@@ -52,11 +52,11 @@ const RideOptionsCard = () => {
 							<Image style={{ width: 100, height: 100, resizeMode: 'contain' }} source={{ uri: image }} />
 							<View style={tw`-ml-6`}>
 								<Text style={tw`text-xl font-semibold`}>{title}</Text>
-								<Text>{travelTimeInformation?.duration.text} 소요</Text>
+								<Text>{travelTimeInformation?.duration?.text} 소요</Text>
 							</View>
 							<Text style={tw`text-xl`}>
 								{new Intl.NumberFormat('ko-kr', { style: 'currency', currency: 'WON' }).format(
-									Math.floor(travelTimeInformation?.duration.value * SURGE_CHARGE_RATE * multiplier),
+									travelTimeInformation?.duration?.value * SURGE_CHARGE_RATE * multiplier,
 								)}
 							</Text>
 						</TouchableOpacity>
