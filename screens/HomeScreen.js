@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, SafeAreaView, View, Image } from 'react-native';
 import tw from 'tailwind-react-native-classnames';
 import NavOptions from '../components/NavOptions';
+import NavFavourites from '../components/NavFavourites';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import { GOOGLE_MAPS_APIKEY } from '@env';
 import { useDispatch } from 'react-redux';
@@ -19,6 +20,7 @@ const HomeScreen = () => {
 					placeholder="어디에서 출발할까요?"
 					styles={{ container: { flex: 0 }, textInput: { fontSize: 18 } }}
 					onPress={(data, details = null) => {
+						console.log(details.geometry);
 						dispatch(
 							setOrigin({
 								location: details.geometry.location,
@@ -37,6 +39,7 @@ const HomeScreen = () => {
 				/>
 
 				<NavOptions />
+				<NavFavourites type={'origin'} />
 			</View>
 		</SafeAreaView>
 	);
